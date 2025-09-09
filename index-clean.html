@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Monitoring - CalonPelanggan.id</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="Downloads/download-removebg-preview.png" alt="Logo" />
+        <span>CalonPelanggan.id</span>
+      </div>
+      <div class="sales-list">
+        <h3>Nama Sales</h3>
+        <ul id="salesList">
+          <!-- Sales names will be populated here -->
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="dashboard-header">
+        <h1><span class="icon"></span> Dashboard Monitoring</h1>
+      </header>
+
+      <!-- Info Cards -->
+      <section class="info-cards">
+        <div class="card" id="selectedSalesCard">
+          <span class="icon">👤</span>
+          <div>
+            <div class="card-label">Nama Sales:</div>
+            <div class="card-value" id="selectedSalesName">-</div>
+          </div>
+        </div>
+        <div class="card" id="totalCustomersCard">
+          <span class="icon">📈</span>
+          <div>
+            <div class="card-label">Total Calon Pelanggan:</div>
+            <div class="card-value" id="totalCustomers">0</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Controls -->
+      <section class="controls">
+        <div class="filter-sto">
+          <label for="filterSTO">Filter STO</label>
+          <select id="filterSTO">
+            <option value="">All STO</option>
+            <option value="STO 1">STO 1</option>
+            <option value="STO 2">STO 2</option>
+            <option value="STO 3">STO 3</option>
+          </select>
+        </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search..." />
+        </div>
+        <button id="addCustomerBtn" class="btn-add">Tambahkan Pelanggan Baru</button>
+      </section>
+
+      <!-- Table -->
+      <section class="table-section">
+        <table id="customerTable">
+          <thead>
+          <tr>
+              <th>ODP Terdekat</th>
+              <th>Nama</th>
+              <th>Alamat</th>
+              <th>No Telepon</th>
+              <th>Nama Sales</th>
+              <th>Visit</th>
+              <th>Keterangan</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Customer rows will be populated here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Tambahkan Pelanggan Baru</h2>
+      <form id="addCustomerForm">
+        <label for="odpInput">ODP Terdekat:</label>
+        <input type="text" id="odpInput" name="odp" required />
+        <label for="nameInput">Nama:</label>
+        <input type="text" id="nameInput" name="name" required />
+        <label for="addressInput">Alamat:</label>
+        <input type="text" id="addressInput" name="address" required />
+        <label for="phoneInput">No Telepon:</label>
+        <input type="tel" id="phoneInput" name="phone" required />
+        <label for="salesInput">Nama Sales:</label>
+        <select id="salesInput" name="sales" required>
+          <!-- Sales options populated by JS -->
+        </select>
+        <label for="visitInput">Visit:</label>
+        <input type="text" id="visitInput" name="visit" />
+        <label for="notesInput">Keterangan:</label>
+        <textarea id="notesInput" name="notes"></textarea>
+        <div class="form-buttons">
+          <button type="submit" class="btn-submit">Masuk</button>
+          <button type="button" id="cancelBtn" class="btn-cancel">Batal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
